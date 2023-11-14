@@ -37,16 +37,16 @@ flutter pub get
 cd "$app_project_location/ios"
 
 # Update the pod repo to ensure access to the latest pod versions
-pod repo update
+pod repo update --verbose
 
 # Install the pods using the --repo-update flag to ensure the repo is updated before installation
-pod install --repo-update
+pod install --repo-update --verbose
 
 # Update the pods again to ensure all dependencies are resolved
-pod update
+pod update --verbose
 
 # Run the pod install command again to ensure a complete installation
-pod install
+pod install --verbose
 
 # Return to the project root directory
 cd ..
