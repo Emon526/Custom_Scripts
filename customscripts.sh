@@ -17,21 +17,20 @@ copy_and_make_executable() {
 case "$platform" in
   Linux*)
     echo "Detected Linux"
-    for file in $(ls "$cwd"); do
-      copy_and_make_executable "$cwd/$file"
+    for file in "$cwd"/*.sh; do
+      [ -f "$file" ] && copy_and_make_executable "$file"
     done
     ;;
   Darwin*)
     echo "Detected macOS"
-    for file in $(ls "$cwd"); do
-      copy_and_make_executable "$cwd/$file"
+    for file in "$cwd"/*.sh; do
+      [ -f "$file" ] && copy_and_make_executable "$file"
     done
     ;;
   CYGWIN*|MINGW32*|MSYS*|MINGW*)
     echo "Detected Windows"
-    for file in $(ls "$cwd"); do
-      # You can add Windows-specific operations here
-      echo "Windows operation for $file"
+    for file in "$cwd"/*.sh; do
+      [ -f "$file" ] && copy_and_make_executable "$file"
     done
     ;;
   *)
